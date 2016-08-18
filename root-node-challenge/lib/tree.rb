@@ -1,13 +1,12 @@
 # My Solution:
 def searchTree(root, val)
   return 1 if (root.value == val)
-  if !(root.left) && !(root.right)
+  if (root.left && root.right)
+    return searchTree(root.right, val)
+    return searchTree(root.left, val)
   elsif !(root.left)
     return searchTree(root.right, val)
   elsif !(root.right)
-    return searchTree(root.left, val)
-  else
-    return searchTree(root.right, val)
     return searchTree(root.left, val)
   end
   0
